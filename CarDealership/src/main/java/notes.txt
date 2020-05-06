@@ -1,0 +1,32 @@
+User
+	-username
+	-password
+	logIn
+	registerUser
+employee
+	addCar
+	determineOffer
+	removeCar
+	viewAllContracts
+customer
+	viewLot
+	makeOffer
+	viewCars
+	viewPayments
+system
+	updateCarStatus
+	rejectOtherOffers
+	calulateMonthlyPayment
+
+Contract
+	*payments
+		date
+		amount
+	*offer
+		downPayment
+		termLength
+		status
+	car
+	cutomer
+	
+	
