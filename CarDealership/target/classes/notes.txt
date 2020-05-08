@@ -1,32 +1,44 @@
-User
-	-username
-	-password
-	logIn
-	registerUser
-employee
-	addCar
-	determineOffer
-	removeCar
-	viewAllContracts
-customer
-	viewLot
-	makeOffer
-	viewCars
-	viewPayments
-system
-	updateCarStatus
-	rejectOtherOffers
-	calulateMonthlyPayment
 
-Contract
-	*payments
-		date
-		amount
-	*offer
-		downPayment
-		termLength
-		status
-	car
-	cutomer
-	
-	
+logIn
+register
+
+customerMenu
+-view(cars:available)
+ -focus(car)
+ --register(contract),submitted
+ 
+-view(contracts:active:user)
+ -focus(contract)
+ --view(contract:payments)
+ 
+employeeMenu
+-view(car:available)
+ -focus(car)
+  --remove(car),submitted
+
+-view(contracts:pending)
+ -focus(contract)
+ --update(contract),submitted
+ 
+-register(car),submitted
+
+-view(contracts:active)
+
+
+
+logiIn
+register(car,user,contract)
+view(cars:availble,contracts:active:user,contract:payments,contracts:pending)
+focus(car,contract)
+update(contract)
+remove(car)
+
+5/8
+created Lot Singleton
+created User, Car and Contract Factory with input validation
+created logIn menu validation
+TODO create view streams with filters
+TODO create focus logic
+TODO create menu flow logic
+
+
