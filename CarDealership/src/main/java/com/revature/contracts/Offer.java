@@ -1,15 +1,34 @@
 package com.revature.contracts;
 
+import com.revature.cars.Car;
+import com.revature.users.User;
+
 public class Offer {
+	private int offerID;
+	private int carID;
+	private int userID;
 	private DownPayment downPayment;
 	private TermLoanLength termLoanLength;
 	private OfferStatus offerStatus;
 
-	public Offer(DownPayment downPayment, TermLoanLength termLoanLength) {
+	//for offerFactory to sql
+	public Offer(Car car,User user,DownPayment downPayment, TermLoanLength termLoanLength) {
 		super();
+		this.carID = car.getID();
+		this.userID = user.getID();
 		this.downPayment = downPayment;
 		this.termLoanLength = termLoanLength;
 		this.offerStatus = new OfferStatus("Pending");
+	}
+	//from SQL
+	public Offer(int offerID, int carID, int userID, double downPayment, int termLength, String status) {
+		super();
+		this.carID = carID;
+		this.userID = userID;
+		this.offerID = offerID;
+		this.downPayment = new DownPayment(downPayment);
+		this.termLoanLength = new TermLoanLength(termLength);
+		this.offerStatus = new OfferStatus(status);
 	}
 
 	public DownPayment getDownPayment() {
@@ -38,8 +57,14 @@ public class Offer {
 
 	@Override
 	public String toString() {
-		return "Offer [downPayment=" + downPayment + ", termLoanLength=" + termLoanLength + ", offerStatus="
-				+ offerStatus + "]";
+		return "Offer "+offerID+
+				"[downPayment= " + downPayment.getValue() +
+				", termLoanLength =" + termLoanLength.getLength()+
+				", offerStatus= "+ offerStatus.getValue() +
+				" ]\n";
+	}
+	public int getID() {
+		return offerID;
 	}
 
 }

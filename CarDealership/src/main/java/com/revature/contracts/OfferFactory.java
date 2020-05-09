@@ -8,7 +8,7 @@ public class OfferFactory {
 	private User user;
 	private DownPayment downPayment;
 	private TermLoanLength termLoanLength;
-	private Contract contract;
+	private Offer offer;
 
 	public OfferFactory(Car car, User user) {
 		super();
@@ -38,16 +38,16 @@ public class OfferFactory {
 		if (car == null || user == null || downPayment == null || termLoanLength == null)
 			System.out.println("Please enter offer information");
 		else {
-			this.contract = new Contract(car, user, new Offer(downPayment, termLoanLength));
+			this.offer = new Offer(car, user, downPayment, termLoanLength);
 			//TODO persist Contract
 		}
 	}
 	
-	public Contract thisNewOffer() {
-		if(contract == null)
+	public Offer thisNewOffer() {
+		if(offer == null)
 			System.out.println("Contract not yet created");
 		else {
-			return contract;
+			return offer;
 		}
 		return null;
 	}

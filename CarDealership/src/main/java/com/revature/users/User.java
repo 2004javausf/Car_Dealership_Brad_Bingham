@@ -1,6 +1,7 @@
 package com.revature.users;
 
 public class User {
+	private int userID;
 	private Username username;
 	private Password password;
 	private UserType type;
@@ -10,6 +11,13 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.type = type;
+	}
+	public User(int id,String username, String password, String type) {
+		super();
+		this.userID = id;
+		this.username = new Username(username);
+		this.password = new Password(password);
+		this.type = new UserType(type);
 	}
 	public Username getUsername() {
 		return username;
@@ -31,7 +39,12 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", type=" + type + "]";
+		return "User "+userID+" [username=" + username + 
+				", password=" + password + 
+				", type=" + type + "]\n";
+	}
+	public int getID() {
+		return userID;
 	}
 
 	

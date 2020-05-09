@@ -7,6 +7,10 @@ public class UserType {
 		super();
 		this.value = "Customer";
 	}
+	public UserType(String type) {
+		super();
+		this.value = type;
+	}
 
 	public String getValue() {
 		return value;

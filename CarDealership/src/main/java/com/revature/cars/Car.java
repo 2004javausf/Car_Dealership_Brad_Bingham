@@ -1,12 +1,13 @@
 package com.revature.cars;
 
-import com.revature.contracts.Contract;
-
 public class Car {
+	private int carID;
+	private int ownerID; // 0 == available for sale
 	private Model model;
 	private Year year;
 	private Color color;
 	private Price price;
+	
 
 	public Car(Model model, Year year, Color color, Price price) {
 		super();
@@ -15,7 +16,18 @@ public class Car {
 		this.color = color;
 		this.price = price;
 	}
+	public Car(int carID, int ownerID,String model, int year, String color, double price) {
+		this.carID = carID;
+		this.ownerID = ownerID;
+		this.model = new Model(model);
+		this.year = new Year(year);
+		this.color = new Color(color);
+		this.price = new Price(price);
+	}
 
+	public void setCarID(int carID) {
+		this.carID = carID;
+	}
 	public Model getModel() {
 		return model;
 	}
@@ -51,7 +63,13 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [model=" + model + ", year=" + year + ", color=" + color + ", price=" + price + "]";
+		return "Car "+carID+" [model=" + model.getValue()
+		+ ", year=" + year.getValue()
+		+ ", color=" + color.getValue()
+		+ ", price=" + price.getValue() + "]\n";
+	}
+	public int getID() {
+		return carID;
 	}
 
 	

@@ -2,58 +2,42 @@ package com.revature.contracts;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.revature.cars.Car;
+import com.revature.daoimp.PaymentDAOImp;
 import com.revature.users.User;
 
 public class Contract {
-	private Car car;
-	private User user;
-	private List<Payment> payments = new ArrayList<>();
-	private Offer offer;
-
-	public Contract(Car car, User user, Offer offer) {
+	private int contractID;
+	private int offerID; //car,user,price,length
+	private List<Payment> payments = new ArrayList<>();//paid
+	
+	//for factory
+	public Contract(int offerID, double downPayment) {
 		super();
-		this.car = car;
-		this.user = user;
-		this.offer = offer;
+		this.offerID = offerID;
 	}
+	
 
-	public Car getCar() {
-		return car;
-	}
-
-	public void setCar(Car car) {
-		this.car = car;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public List<Payment> getPayments() {
-		return payments;
-	}
-
-	public void setPayments(List<Payment> payments) {
+	public Contract(int contractID, int offerID, ArrayList<Payment> payments) {
+		super();
+		this.contractID = contractID;
+		this.offerID = offerID;
 		this.payments = payments;
 	}
 
-	public Offer getOffer() {
-		return offer;
-	}
-
-	public void setOffer(Offer offer) {
-		this.offer = offer;
-	}
 
 	@Override
 	public String toString() {
-		return "Contract [car=" + car + ", user=" + user + ", payments=" + payments + ", offer=" + offer + "]";
+		return "Contract "+contractID+
+				", offerID=" + offerID +
+				", payments:\n" + payments + "\n";
 	}
+	
+	
+	
+
+	
 
 }

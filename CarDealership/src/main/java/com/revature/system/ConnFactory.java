@@ -16,15 +16,13 @@ public class ConnFactory {
 		return cf;
 	}
 	public Connection getConnection() {
-		//java2004usf.c3ze8kvqgwxn.us-east-2.rds.amazonaws.com
-		String url = "";
-		String user = "Username";
-		String password = "Password";
+		String url = "jdbc:oracle:thin:@java2004usf.c3ze8kvqgwxn.us-east-2.rds.amazonaws.com:1521:ORCL";
+		String user = "cardealership";
+		String password = "Pa55word";
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return conn;
