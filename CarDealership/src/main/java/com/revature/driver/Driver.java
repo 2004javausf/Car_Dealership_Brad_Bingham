@@ -1,23 +1,34 @@
 package com.revature.driver;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.Statement;
 
-import com.revature.contracts.Contract;
-import com.revature.daoimp.ContractDAOImp;
+import com.revature.system.ConnFactory;
 
 public class Driver {
-	public static ContractDAOImp di = new ContractDAOImp();
-	
 	public static void main(String[] args) {
+//		Lot lot = Lot.getLotData();
+//		System.out.println(lot.getLotData());
+		
+		ConnFactory cf = ConnFactory.getInstance();
+		Connection conn = cf.getConnection();
+		String sql = "select CONTRACT_ID from CONTRACT_TBL where CONTRACT_ID = 1";
+		Statement stmt;
 		try {
-//			di.insertContract(5,666);
-			ArrayList<Contract> testi = (ArrayList<Contract>) di.getContractList();
-			System.out.println(testi);
+			stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			rs.next();
+			System.out.println("This is printing out "+rs.getInt(1));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
 	}
 	
 	

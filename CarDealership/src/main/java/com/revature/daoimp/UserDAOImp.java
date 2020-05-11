@@ -15,13 +15,12 @@ import com.revature.users.User;
 public class UserDAOImp implements UserDAO {
 	public static ConnFactory cf = ConnFactory.getInstance();
 	@Override
-	public void insertUser(String username, String password, String type) throws SQLException {
+	public void insertUser(String username, String password) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{ call INSERTUSER(?,?,?)";
 		CallableStatement call = conn.prepareCall(sql);
 		call.setString(1, username);
 		call.setString(2, password);
-		call.setString(3, type);
 		call.execute();
 		call.close();
 	}

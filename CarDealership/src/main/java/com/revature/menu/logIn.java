@@ -42,10 +42,11 @@ public class logIn {
 		return  false;
 	}
 
-	//TODO connect logIn to lotMenu.currentUser
 	public void logIn() {
-		if(locatedUsername = matchingPassword = true)
+		if(locatedUsername = matchingPassword = true) {
 			System.out.println("logged in");
+			Lot.setCurrentUser(user);
+		}
 		else
 			System.out.println("Invalid uesername/password");
 	}

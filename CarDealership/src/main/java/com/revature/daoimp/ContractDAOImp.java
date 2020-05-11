@@ -26,7 +26,21 @@ public class ContractDAOImp implements ContractDAO{
 		call.execute();
 		call.close();
 	}
+	
 
+	public int gettingNext() throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "select CONTRACT_ID from CONTRACT_TBL where CONTRACT_ID = 1";
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		rs.next();
+		return rs.getInt(1);
+	}
+	
+	
+	
+	
+	
 	@Override
 	public List<Contract> getContractList() throws SQLException {
 		Connection conn = cf.getConnection();
@@ -51,8 +65,8 @@ public class ContractDAOImp implements ContractDAO{
 			
 			c = new Contract(
 					rs.getInt(1),
-					rs.getInt(2),
-					list
+					rs.getInt(2)
+					,list
 					);
 			contractList.add(c);
 		}

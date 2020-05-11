@@ -26,7 +26,7 @@ employeeMenu
 
 
 
-logiIn
+logiIn     username,password:sets current user
 register(car,user,contract)
 view(cars:availble,contracts:active:user,contract:payments,contracts:pending)
 focus(car,contract)

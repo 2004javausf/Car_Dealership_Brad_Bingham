@@ -11,4 +11,6 @@ public interface CarDAO {
 	public void insertCar(String model, int year, String color, double price) throws SQLException;
 	
 	public List<Car> getCarList() throws SQLException;
+	
+	public void removeCar(int carID) throws SQLException;
 }

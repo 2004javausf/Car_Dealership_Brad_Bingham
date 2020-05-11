@@ -1,5 +1,10 @@
 package com.revature.contracts;
 
+import java.util.List;
+
+import com.revature.cars.Car;
+import com.revature.system.Lot;
+
 public class Payment {
 	private int paymentID;
 	private int contractID;
@@ -35,6 +40,10 @@ public class Payment {
 
 	public boolean isValid() {
 		//TODO add carlookup(id) make sure payment doesn't exceed balance
+		List<Car> carsList =Lot.getLotData().getCars();
+		List<Contract> contractsList = Lot.getLotData().getContracts();
+		
+		
 		if (value > 0)
 			return true;
 		return false;

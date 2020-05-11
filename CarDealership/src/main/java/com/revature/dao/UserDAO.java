@@ -7,7 +7,7 @@ import com.revature.users.User;
 
 public interface UserDAO {
 
-	public void insertUser(String username,String password,String type)throws SQLException;
+	public void insertUser(String username,String password)throws SQLException;
 	
 	public List<User> getUserList() throws SQLException;
 }
