@@ -17,7 +17,7 @@ public class UserDAOImp implements UserDAO {
 	@Override
 	public void insertUser(String username, String password) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "{ call INSERTUSER(?,?,?)";
+		String sql = "{ call INSERTUSER(?,?)";
 		CallableStatement call = conn.prepareCall(sql);
 		call.setString(1, username);
 		call.setString(2, password);

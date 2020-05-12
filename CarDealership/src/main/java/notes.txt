@@ -26,19 +26,13 @@ employeeMenu
 
 
 
-logiIn     username,password:sets current user
-register(car,user,contract)
+logiIn     
+register(car,user,contract,payment)
 view(cars:availble,contracts:active:user,contract:payments,contracts:pending)
 focus(car,contract)
 update(contract)
 remove(car)
 
-5/8
-created Lot Singleton
-created User, Car and Contract Factory with input validation
-created logIn menu validation
-TODO create view streams with filters
-TODO create focus logic
-TODO create menu flow logic
+
 
 

@@ -17,8 +17,8 @@ public class Username {
 	}
 
 	public boolean isValid() {
-		// TODO regex for validating this
-		return false;
+		// TODO regex for validating username
+		return true;
 	}
 
 	public boolean isAvailable() {

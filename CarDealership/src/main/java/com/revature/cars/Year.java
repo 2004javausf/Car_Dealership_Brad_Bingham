@@ -17,13 +17,13 @@ public class Year {
 	}
 	
 	public boolean isValid() {
-		//TODO create regex logic
+		//TODO create regex  for valid year int
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Year [value=" + value + "]";
+		return value+"";
 	}
 	
 }

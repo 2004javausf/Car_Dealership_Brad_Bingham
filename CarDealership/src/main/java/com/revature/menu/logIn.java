@@ -21,7 +21,7 @@ public class logIn {
 		this.user = null;
 	}
 
-	private boolean checkUsername(Username username) {
+	public boolean checkUsername(Username username) {
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
 				this.user = user;

@@ -22,7 +22,7 @@ public class Color {
 	}
 
 	public boolean isValid() {
-		// TODO Auto-generated method stub
+		// TODO color validation
 		return true;
 	}
 

@@ -16,13 +16,13 @@ public class Model {
 		this.value = value;
 	}
 	public boolean isValid() {
-		//TODO create regex validator
+		//TODO create regex validator for model
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Model [value=" + value + "]";
+		return value;
 	}
 
 }

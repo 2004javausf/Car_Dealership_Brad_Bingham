@@ -14,7 +14,7 @@ public class Password {
 	
 	public boolean isValid() {
 		//TODO regex to validate password
-		return false;
+		return true;
 	}
 	
 	@Override

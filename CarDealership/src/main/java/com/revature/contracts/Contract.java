@@ -26,6 +26,36 @@ public class Contract {
 		this.offerID = offerID;
 		this.payments = payments;
 	}
+	
+
+	public int getContractID() {
+		return contractID;
+	}
+
+
+	public void setContractID(int contractID) {
+		this.contractID = contractID;
+	}
+
+
+	public int getOfferID() {
+		return offerID;
+	}
+
+
+	public void setOfferID(int offerID) {
+		this.offerID = offerID;
+	}
+
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
 
 
 	@Override
