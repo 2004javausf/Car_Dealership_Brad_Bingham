@@ -1,50 +1,61 @@
 package com.revature.users;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import com.revature.daoimp.UserDAOImp;
+import com.revature.system.LogThis;
+import com.revature.system.Lot;
+
 public class UserFactory {
+	private List<User> users;
 	private Username username;
 	private Password password;
 	private User user;
 
 	public UserFactory() {
 		super();
+		this.users = Lot.getLotData().getUsers();
 	}
 
-	public void enterUsername(String input) {
-		Username username = new Username(input);
-		if (!username.isValid())
-			System.out.println(username.getValue() + " is not a valid username.");
-		else if (!username.isAvailable())
-			System.out.println(username.getValue() + " is already beeing used");
-		else {
-			this.username = username;
+	public boolean checkUsername(Username username) {
+		if (!username.isValid()) {
+			System.out.println("This is not a vaild username");
+			return false;
+		} else if (!username.isAvailable()) {
+			System.out.println("This usernaem is not available");
+			return false;
 		}
+		this.username = username;
+		return true;
 	}
 
-	public void enterPassword(String input) {
-		Password password = new Password(input);
-		if (!password.isValid())
-			System.out.println(password.getValue() + "is not a valid password");
-		else {
+	public boolean checkPassword(Password password) {
+		if (username == null)
+			System.out.println("Please enter a valid username first");
+		else if (password.isValid()) {
 			this.password = password;
+			return true;
 		}
+		return false;
 	}
 
-	public void registerThisUser() {
-		if (username == null || password == null)
-			System.out.println("Please enter username/password");
-		else {
-			this.user = new User(username, password, new UserType());
-			// TODO persist new user
-		}
-	}
-
-	public User thisNewUser() {
-		if (user == null)
-			System.out.println("User not yet created");
-		else {
-			return user;
-		}
-		return null;
+	public void registerUser() {
+		if (username != null && password != null) {
+			this.user = new User(username,password);
+			UserDAOImp udi = new UserDAOImp();
+			try {
+				udi.insertUser(
+						username.getValue(),
+						password.getValue()
+						);
+				LogThis.LogIt("info", user +"created");
+			} catch (SQLException e) {
+				LogThis.LogIt("debug", "function 'registerUser' SQL exception" );
+				e.printStackTrace();
+			}
+		} else
+			System.out.println("Invalid uesername/password");
 	}
 
 }

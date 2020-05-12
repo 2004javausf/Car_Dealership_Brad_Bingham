@@ -6,11 +6,10 @@ public class User {
 	private Password password;
 	private UserType type;
 	
-	public User(Username username, Password password, UserType type) {
+	public User(Username username, Password password) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.type = type;
 	}
 	public User(int id,String username, String password, String type) {
 		super();

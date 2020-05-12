@@ -1,18 +1,18 @@
-package com.revature.menu;
+package com.revature.cars;
 
 import java.sql.SQLException;
 
 import com.revature.daoimp.CarDAOImp;
 
-public class RemoveCar {
+public class CarRemover {
 	int carID;
 	boolean isValidToRemove;
 	
-	public RemoveCar() {
+	public CarRemover() {
 		super();
 	}
 	
-	public boolean checkCarID(int carID) {
+	public boolean enterCarID(int carID) {
 		//TODO check if car exists and if it is owned
 		this.carID = carID;
 		this.isValidToRemove = true;

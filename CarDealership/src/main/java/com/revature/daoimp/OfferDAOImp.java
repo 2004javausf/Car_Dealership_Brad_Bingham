@@ -49,4 +49,18 @@ public class OfferDAOImp implements OfferDAO{
 		return offerList;
 	}
 
+	@Override
+	public void updateOfferStatus(int offerID, int carID, int userID, double downPayment, String newStatus) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "{ call UPDATEOFFER_STATUS(?,?,?,?,?)";
+		CallableStatement call = conn.prepareCall(sql);
+		call.setInt(1, offerID);
+		call.setInt(2, carID);
+		call.setInt(3, userID);
+		call.setDouble(4, downPayment);
+		call.setString(5, newStatus);
+		call.execute();
+		call.close();
+	}
+
 }

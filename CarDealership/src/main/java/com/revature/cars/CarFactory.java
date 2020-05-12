@@ -1,79 +1,76 @@
 package com.revature.cars;
 
+import java.sql.SQLException;
+
+import com.revature.daoimp.CarDAOImp;
+
 public class CarFactory {
 	private Model model;
 	private Year year;
 	private Color color;
 	private Price price;
-	private Car car;
-
+	
 	public CarFactory() {
 		super();
 	}
-	
-
-	public CarFactory(String model, int year, String color, double price) {
-		super();
-		this.model = new Model(model);
-		this.year = new Year(year);
-		this.color = new Color(color);
-		this.price = new Price(price);
-		this.car = new Car(this.model, this.year, this.color, this.price);
-	}
-
-
-	public void enterModel(String input) {
-		Model model = new Model(input);
-		if (!model.isValid())
-			System.out.println(model.getValue() + " is not a valid model");
-		else {
+	public boolean enterModel(Model model) {
+		if(model.isValid()) {
 			this.model = model;
+			return true;
 		}
+		System.out.println("Not a vaild input for model");
+		return false;
 	}
-
-	public void enterYear(int input) {
-		Year year = new Year(input);
-		if (!year.isValid())
-			System.out.println(year.getValue() + " is not a valid year");
-		else {
+	public boolean enterYear(Year year) {
+		if(year.isValid()) {
 			this.year = year;
+			return true;
 		}
+		System.out.println("Not a valid input for year");
+		return false;
 	}
-
-	public void enterColor(String input) {
-		Color color = new Color(input);
-		if (!color.isValid())
-			System.out.println(color.getValue() + " is not a valid color");
-		else {
+	public boolean enterColor(Color color) {
+		if(color.isValid()) {
 			this.color = color;
+			return true;
 		}
+		return false;
 	}
-
-	public void enterPrice(double input) {
-		Price price = new Price(input);
-		if (!price.isValid())
-			System.out.println(price.getValue() + " is not a valid price");
-		else {
+	public boolean enterPrice(Price price) {
+		if(price.isValid()) {
 			this.price = price;
+			return true;
+		}
+		System.out.println("Not a vaild price");
+		return false;
+	}
+	public void registerCar() {
+		if(model != null && year != null && color != null && price != null) {
+			CarDAOImp cdi = new CarDAOImp();
+			try {
+				cdi.insertCar(
+						model.getValue(), 
+						year.getValue(),
+						color.getValue(), 
+						price.getValue());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
-
-	public void registerThisCar() {
-		if (model == null || year == null || color == null || price == null)
-			System.out.println("Please enter car car information");
-		else {
-			this.car = new Car(model, year, color, price);
-			// TODO persist car
-		}
+	
+	public Model getModel() {
+		return model;
 	}
-
-	public Car thisNewCar() {
-		if (car == null)
-			System.out.println("Car info not yet entered");
-		else {
-			return car;
-		}
-		return null;
+	public Year getYear() {
+		return year;
+	}
+	public Color getColor() {
+		return color;
+	}
+	public Price getPrice() {
+		return price;
 	}
 
 }

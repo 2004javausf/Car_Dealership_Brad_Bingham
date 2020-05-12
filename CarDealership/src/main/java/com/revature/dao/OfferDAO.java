@@ -10,4 +10,6 @@ public interface OfferDAO {
 	public void insertOffer(int carID, int userID,double downpayment,int termLength)throws SQLException;
 	
 	public List<Offer> getOfferList() throws SQLException;
+	
+	public void updateOfferStatus(int offerID,int carID,int userID,double downPayment,String newStatus) throws SQLException;
 }
