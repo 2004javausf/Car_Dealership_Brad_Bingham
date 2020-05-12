@@ -13,17 +13,17 @@ All input is received using the java.util.Scanner class.
 Log4j is implemented to log events to a file. (or a database table)
 A minimum of one (1) JUnit test is written to test some functionality.
 ### User Stories
-[ ] As a user, I can login.
-[ ] As an employee, I can add a car to the lot.
-[ ] As a customer, I can view the cars on the lot.
-[ ] As a customer, I can make an offer for a car.
-[ ] As an employee, I can accept or reject a pending offer for a car.
-[ ] As the system, I update a car to an owned state when an offer is accepted.
-[ ] As the system, I reject all other pending offers for a car when an offer is accepted.
-[ ] As a user, I can register for a customer account.
-[ ] As an employee, I can remove a car from the lot.
-[ ] As a customer, I can view the cars that I own.
-[ ] As a customer, I can view my remaining payments for a car.
-[ ] As an employee, I can view all payments.
-[ ] As the system, I can calculate the monthly payment.
+-[ ] As a user, I can login.
+-[ ] As an employee, I can add a car to the lot.
+-[ ] As a customer, I can view the cars on the lot.
+-[ ] As a customer, I can make an offer for a car.
+-[ ] As an employee, I can accept or reject a pending offer for a car.
+-[ ] As the system, I update a car to an owned state when an offer is accepted.
+-[ ] As the system, I reject all other pending offers for a car when an offer is accepted.
+-[ ] As a user, I can register for a customer account.
+-[ ] As an employee, I can remove a car from the lot.
+-[ ] As a customer, I can view the cars that I own.
+-[ ] As a customer, I can view my remaining payments for a car.
+-[ ] As an employee, I can view all payments.
+-[ ] As the system, I can calculate the monthly payment.
 ##### Presentation should include demo, then cool implementation
