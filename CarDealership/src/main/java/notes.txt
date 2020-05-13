@@ -27,10 +27,9 @@ employeeMenu
 
 
 logiIn     
-register(car,user,contract,payment)
-view(cars:availble,contracts:active:user,contract:payments,contracts:pending)
+register(car,user,offer,contract,payment)
+view(cars:availble,cars:owned,contracts:user,contract:payments,contracts:pending)
 focus(car,contract)
-update(contract)
 remove(car)
 
 

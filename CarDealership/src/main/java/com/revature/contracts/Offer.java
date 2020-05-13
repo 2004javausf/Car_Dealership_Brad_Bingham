@@ -6,24 +6,6 @@ import com.revature.users.User;
 public class Offer {
 	private int offerID;
 	private int carID;
-	public int getOfferID() {
-		return offerID;
-	}
-	public void setOfferID(int offerID) {
-		this.offerID = offerID;
-	}
-	public int getCarID() {
-		return carID;
-	}
-	public void setCarID(int carID) {
-		this.carID = carID;
-	}
-	public int getUserID() {
-		return userID;
-	}
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
 	private int userID;
 	private DownPayment downPayment;
 	private TermLoanLength termLoanLength;
@@ -73,6 +55,24 @@ public class Offer {
 		this.offerStatus = offerStatus;
 	}
 
+	public int getOfferID() {
+		return offerID;
+	}
+	public void setOfferID(int offerID) {
+		this.offerID = offerID;
+	}
+	public int getCarID() {
+		return carID;
+	}
+	public void setCarID(int carID) {
+		this.carID = carID;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 	@Override
 	public String toString() {
 		return "Offer "+offerID+

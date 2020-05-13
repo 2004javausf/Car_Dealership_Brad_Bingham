@@ -18,7 +18,7 @@ public class UserFactory {
 		this.users = Lot.getLotData().getUsers();
 	}
 
-	public boolean checkUsername(Username username) {
+	public boolean enterUsername(Username username) {
 		if (!username.isValid()) {
 			System.out.println("This is not a vaild username");
 			return false;
@@ -30,7 +30,7 @@ public class UserFactory {
 		return true;
 	}
 
-	public boolean checkPassword(Password password) {
+	public boolean enterPassword(Password password) {
 		if (username == null)
 			System.out.println("Please enter a valid username first");
 		else if (password.isValid()) {

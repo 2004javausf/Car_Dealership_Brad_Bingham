@@ -71,6 +71,9 @@ public class Car {
 	public int getID() {
 		return carID;
 	}
+	public int getOwnerID() {
+		return ownerID;
+	}
 
 	
 

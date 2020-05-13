@@ -7,13 +7,13 @@ import com.revature.users.Password;
 import com.revature.users.User;
 import com.revature.users.Username;
 
-public class logIn {
+public class LogInChecker {
 	private List<User> users;
 	private boolean locatedUsername;
 	private boolean matchingPassword;
 	private User user;
 
-	public logIn() {
+	public LogInChecker() {
 		super();
 		this.users = Lot.getLotData().getUsers();
 		this.locatedUsername = false;
@@ -21,7 +21,7 @@ public class logIn {
 		this.user = null;
 	}
 
-	public boolean checkUsername(Username username) {
+	public boolean enterUsername(Username username) {
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
 				this.user = user;
@@ -32,7 +32,7 @@ public class logIn {
 		return false;
 	}
 
-	public boolean checkPassword(Password password) {
+	public boolean enterPassword(Password password) {
 		if(user == null || locatedUsername == false)
 			System.out.println("Please enter a valid username first");
 		else if(user.getPassword().equals(password)) {
@@ -49,5 +49,12 @@ public class logIn {
 		}
 		else
 			System.out.println("Invalid uesername/password");
+	}
+	public boolean isLocatedUsername() {
+		return locatedUsername;
+	}
+
+	public boolean isMatchingPassword() {
+		return matchingPassword;
 	}
 }

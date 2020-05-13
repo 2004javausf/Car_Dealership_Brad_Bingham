@@ -45,7 +45,7 @@ public class OfferStatusUpdater {
 				odi.updateOfferStatus(offerID, carID, userID, downPayment, newStatus);
 				LogThis.LogIt("info", offer +"updated");
 			} catch (SQLException e) {
-				LogThis.LogIt("debug", "function 'updateOfferStatus' SQL exception" );
+				LogThis.LogIt("error", "function 'updateOfferStatus' SQL exception" );
 				e.printStackTrace();
 			}
 		}

@@ -15,10 +15,10 @@ import com.revature.daoimp.UserDAOImp;
 import com.revature.users.User;
 
 public class Lot {
-	private List<User> users = new ArrayList<>();
-	private List<Car> cars = new ArrayList<>();
-	private List<Contract> contracts = new ArrayList<>();
-	private List<Offer> offers = new ArrayList<>();
+	private static List<User> users = new ArrayList<>();
+	private static List<Car> cars = new ArrayList<>();
+	private static List<Contract> contracts = new ArrayList<>();
+	private static List<Offer> offers = new ArrayList<>();
 	
 	private static CarDAOImp cardi = new CarDAOImp();
 	private static ContractDAOImp condi = new ContractDAOImp();
@@ -48,6 +48,17 @@ public class Lot {
 		if(instance == null)
 			instance = new Lot();
 		return instance;
+	}
+	public static void updateLotData() {
+		try {
+			users = usedi.getUserList();
+			cars = cardi.getCarList();
+			offers = offdi.getOfferList();
+			contracts = condi.getContractList();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List<User> getUsers() {

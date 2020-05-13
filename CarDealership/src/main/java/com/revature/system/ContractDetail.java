@@ -21,13 +21,23 @@ public class ContractDetail {
 	private double totalPaid;
 	private double remaingBalance;
 	private int monthsLeftOnLoan;
+	private double monthlyPayment;
 
+	public ContractDetail() {
+		super();
+	}
 	public ContractDetail(int contractID) {
 		super();
 		contract = contractByID(contractID);
 		offer = offerByID(contract.getOfferID());
 		car = carByID(offer.getCarID());
 		calculatePaymentInfo();
+	}
+	public ContractDetail(Offer offer) {
+		super();
+		offer = offerByID(offer.getID());
+		car = carByID(offer.getCarID());
+		estimatePaymentInfo();
 	}
 
 	private Contract contractByID(int contractID) {
@@ -50,7 +60,7 @@ public class ContractDetail {
 		return null;
 	}
 
-	private Car carByID(int carID) {
+	public Car carByID(int carID) {
 		Iterator<Car> itr = carList.iterator();
 		while (itr.hasNext()) {
 			Car car = itr.next();
@@ -59,7 +69,12 @@ public class ContractDetail {
 		}
 		return null;
 	}
-
+	public void estimatePaymentInfo() {
+		totalPrice = remaingBalance = car.getPrice().getValue();
+		monthsLeftOnLoan = offer.getTermLoanLength().getLength();
+		monthlyPayment = remaingBalance/monthsLeftOnLoan;
+	}
+	
 	public void calculatePaymentInfo() {
 		totalPrice = car.getPrice().getValue();
 		List<Payment> payments = contract.getPayments();
@@ -71,6 +86,7 @@ public class ContractDetail {
 			totalPaid += payment1.getValue();
 		}
 		remaingBalance = totalPrice - totalPaid;
+		monthlyPayment = remaingBalance/monthsLeftOnLoan;
 	}
 
 	public Contract getContract() {
@@ -100,6 +116,9 @@ public class ContractDetail {
 	public int getMonthsLeftOnLoan() {
 		return monthsLeftOnLoan;
 	}
+	public double getMonthlyPayment() {
+		return monthlyPayment;
+	}
 
 	@Override
 	public String toString() {
@@ -109,6 +128,7 @@ public class ContractDetail {
 				", totalPrice="+ totalPrice +
 				",\n totalPaid=" + totalPaid +
 				",\n remaingBalance=" + remaingBalance +
+				",\n monthlyPayment=" + monthlyPayment +
 				",\n monthsLeftOnLoan="+ monthsLeftOnLoan + "]";
 	}
 	
