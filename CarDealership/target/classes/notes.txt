@@ -32,6 +32,10 @@ view(cars:availble,cars:owned,contracts:user,contract:payments,contracts:pending
 focus(car,contract)
 remove(car)
 
-
+user login
+Add car
+customer view cars
+customer make offer
+customer
 
 

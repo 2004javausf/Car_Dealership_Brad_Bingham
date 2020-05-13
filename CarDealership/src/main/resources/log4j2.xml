@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 	<Appenders>
-		<Console name="Console" target="System_out">
-			<PatternLayout>
-				<Pattern>
-				[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
-				</Pattern>
-			</PatternLayout>
-		</Console>
-		<File name="File" fileName="C:/Users/Brad/Desktop/Revature/Git/BinghamB/logging.log">
+		
+		<File name="File" fileName="C:\Users\Brad\Desktop\Revature\Git\Car_Dealership_Brad_Bingham\logging.log">
 			<PatternLayout>
 				<Pattern>
 					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
@@ -19,11 +13,9 @@
 	</Appenders>
 	<Loggers>
 		<Logger name="com.revature.system.LogThis" level = "info" additivity= "false">
-			<AppenderRef ref="Console"/>
 			<AppenderRef ref = "File"/>
 	</Logger>
 		<Root>
-			<AppenderRef ref="Console"/>
 			<AppenderRef ref = "File"/>
 		</Root>
 	</Loggers>

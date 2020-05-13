@@ -63,6 +63,7 @@ public class Car {
 
 	@Override
 	public String toString() {
+		//fix this to show more
 		return "Car "+carID+" [model=" + model.getValue()
 		+ ", year=" + year.getValue()
 		+ ", color=" + color.getValue()

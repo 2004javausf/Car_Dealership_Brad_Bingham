@@ -21,15 +21,16 @@ public class Display {
 		List<Car> filteredCars = new ArrayList<>();
 		switch (filter) {
 		case "all":
-			System.out.println("\033[0;4mCarID\tModel\tYear\tColor\tPrice\033[0m");
+			System.out.println("\033[0;4mCarID\tOwnerID\tModel\tYear\tColor\tPrice\033[0m");
 			for (Car car : cars) {
 				filteredCars.add(car);
 				int carID = car.getID();
+				int ownerID = car.getOwnerID();
 				String model = car.getModel().getValue();
 				int year = car.getYear().getValue();
 				String color = car.getColor().getValue();
 				double price = car.getPrice().getValue();
-				System.out.println(carID+"\t"+model+"\t"+year+"\t"+color+"\t"+price);
+				System.out.println(carID+"\t"+ownerID+"\t"+model+"\t"+year+"\t"+color+"\t"+price);
 			}
 			break;
 		case "available":
@@ -65,10 +66,12 @@ public class Display {
 	
 	}
 	
-	public void offerRecords() {
+	public ArrayList<Offer> offerRecords() {
 		System.out.println("\033[0;4mOfferID\tCarID\tAskingPrice\tuserID\t$Down\tMonths/Payment\033[0m");
+		ArrayList<Offer> pendingOffers = new ArrayList<>();
 		for (Offer offer : offers) {
 			if(offer.getOfferStatus().getValue().equals("Pending") ) {
+				pendingOffers.add(offer);
 				ContractDetail details = new ContractDetail();
 				int offerID = offer.getOfferID();
 				int carID = offer.getCarID();
@@ -77,7 +80,7 @@ public class Display {
 				int termLoanLength = offer.getTermLoanLength().getLength();
 				Car thisCar = details.carByID(carID);
 				double askingPrice = thisCar.getPrice().getValue();
-				Double monthlyPrice = askingPrice/termLoanLength;
+				Double monthlyPrice = (askingPrice - downPayment)/termLoanLength;
 				NumberFormat nf = NumberFormat.getInstance();
 				nf.setMaximumFractionDigits(2);
 				System.out.println(
@@ -89,6 +92,7 @@ public class Display {
 						"\t"+termLoanLength+"  /  "+nf.format(monthlyPrice));
 			}
 		}
+		return pendingOffers;
 	}
 	
 	//Contracts user:selectSingle employee:all

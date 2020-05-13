@@ -1,5 +1,6 @@
 package com.revature.system;
 
+import java.text.NumberFormat;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class ContractDetail {
 	private List<Offer> offerList = lot.getOffers();
 	private List<Car> carList = lot.getCars();
 
+	NumberFormat nf = NumberFormat.getInstance();
 	private Contract contract;
 	private Offer offer;
 	private Car car;
@@ -24,6 +26,7 @@ public class ContractDetail {
 	private double monthlyPayment;
 
 	public ContractDetail() {
+		
 		super();
 	}
 	public ContractDetail(int contractID) {
@@ -116,8 +119,9 @@ public class ContractDetail {
 	public int getMonthsLeftOnLoan() {
 		return monthsLeftOnLoan;
 	}
-	public double getMonthlyPayment() {
-		return monthlyPayment;
+	public String getMonthlyPayment() {
+		nf.setMaximumFractionDigits(2);
+		return nf.format(monthlyPayment);
 	}
 
 	@Override

@@ -60,9 +60,8 @@ public class Contract {
 
 	@Override
 	public String toString() {
-		return "Contract "+contractID+
-				", offerID=" + offerID +
-				", payments:\n" + payments + "\n";
+		//fix this to show better
+		return 	""+payments;
 	}
 	
 	
